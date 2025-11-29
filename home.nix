@@ -6,18 +6,16 @@
     packages = with pkgs; [
       curl
       ponysay
-      uv
-      ruff
       prek
+      ruff
+      uv
     ];
   };
 
   programs = {
-    fish = {
-      enable = true;
-    };
-    home-manager.enable = true;
+    fish.enable = true;
     helix.enable = true;
+    home-manager.enable = true;
     ssh = {
       enable = true;
       enableDefaultConfig = false;
