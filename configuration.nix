@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   pkgs,
   vars,
   ...
@@ -9,13 +10,16 @@
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs; [
     vim
-    nixfmt-rfc-style
     nixd
+    nixfmt-rfc-style
     mas
   ];
 
   # Necessary for using flakes on this system.
   nix.settings.experimental-features = "nix-command flakes";
+
+  # Set NIX_PATH for nixd LSP support in flakes-only setup
+  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 
   # Enable alternative shell support in nix-darwin.
   programs.fish.enable = true;
@@ -103,7 +107,7 @@
   };
 
   users.knownUsers = [ vars.user ];
-  users.users.fh = {
+  users.users.${vars.user} = {
     name = vars.user;
     uid = 501;
     home = "/Users/${vars.user}";

@@ -35,7 +35,7 @@
       system = "aarch64-darwin";
     in
     {
-      formatter.${system} = nixpkgs.legacyPackages.${system}.nixfmt;
+      formatter.${system} = nixpkgs.legacyPackages.${system}.nixfmt-rfc-style;
       darwinConfigurations.${vars.hostname} = nix-darwin.lib.darwinSystem {
         inherit system;
         specialArgs = {
@@ -61,12 +61,10 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users."${vars.user}" = import ./home.nix;
+            home-manager.users.${vars.user} = import ./home.nix;
             home-manager.backupFileExtension = "backup-before-hm";
           }
         ];
       };
-      my-output = 1 + 1;
-      packages.${system}.default = nixpkgs.legacyPackages.${system}.ponysay;
     };
 }
