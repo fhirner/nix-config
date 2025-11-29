@@ -9,10 +9,10 @@
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs; [
-    vim
+    mas
     nixd
     nixfmt-rfc-style
-    mas
+    vim
   ];
 
   # Necessary for using flakes on this system.
@@ -93,16 +93,17 @@
 
     masApps = {
       "amorphous-disk-mark" = 1168254295;
-      "ubo-lite-safari" = 6745342698;
+
       "1password-safari" = 1569813296;
+      "ubo-lite-safari" = 6745342698;
     };
 
     casks = [
-      "firefox"
-      "1password"
       "1password-cli"
-      "visual-studio-code"
+      "1password"
       "eurkey"
+      "firefox"
+      "visual-studio-code"
     ];
   };
 
