@@ -94,10 +94,17 @@
           }
           home-manager.darwinModules.home-manager
           {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.${vars.user} = import ./home.nix;
-            home-manager.backupFileExtension = "backup-before-hm";
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.${vars.user} =
+                { ... }:
+                {
+                  imports = [ ./home ];
+                  home.stateVersion = "25.05";
+                };
+              backupFileExtension = "backup-before-hm";
+            };
           }
         ];
       };
