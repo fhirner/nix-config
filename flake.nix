@@ -21,6 +21,7 @@
 
   outputs =
     inputs@{
+      self,
       home-manager,
       nix-darwin,
       nix-homebrew,
@@ -43,7 +44,41 @@
           inherit vars;
         };
         modules = [
-          ./configuration.nix
+          ./darwin
+          (
+            { pkgs, ... }:
+            {
+              nixpkgs = {
+                config.allowUnfree = true;
+                hostPlatform = "aarch64-darwin";
+              };
+
+              system = {
+                stateVersion = 6;
+                primaryUser = vars.user;
+                configurationRevision = self.rev or self.dirtyRev or null;
+              };
+
+              users.knownUsers = [ vars.user ];
+              users.users.${vars.user} = {
+                name = vars.user;
+                uid = 501;
+                home = "/Users/${vars.user}";
+                shell = pkgs.fish;
+              };
+
+              networking = {
+                computerName = vars.hostname;
+                hostName = vars.hostname;
+                localHostName = vars.hostname;
+              };
+
+              nix = {
+                settings.experimental-features = "nix-command flakes";
+                nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
+              };
+            }
+          )
           nix-homebrew.darwinModules.nix-homebrew
           {
             nix-homebrew = {
