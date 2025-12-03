@@ -17,6 +17,10 @@
       url = "github:homebrew/homebrew-cask";
       flake = false;
     };
+    fhirner-ssh = {
+      url = "https://github.com/fhirner.keys";
+      flake = false;
+    };
   };
 
   outputs =
@@ -97,6 +101,7 @@
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
+              extraSpecialArgs = { inherit inputs; };
               users.${vars.user} =
                 { ... }:
                 {

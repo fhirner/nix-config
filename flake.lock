@@ -17,6 +17,18 @@
         "type": "github"
       }
     },
+    "fhirner-ssh": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-XdFZJTpwQl3Fp9rlcqiSVauGwV5fg1qg9R2IrSsHbyU=",
+        "type": "file",
+        "url": "https://github.com/fhirner.keys"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://github.com/fhirner.keys"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -125,6 +137,7 @@
     },
     "root": {
       "inputs": {
+        "fhirner-ssh": "fhirner-ssh",
         "home-manager": "home-manager",
         "homebrew-cask": "homebrew-cask",
         "homebrew-core": "homebrew-core",
