@@ -6,7 +6,7 @@
     settings = {
       user = {
         name = "Felix Hirner";
-        email = "mail@felix-hirner.de";
+        email = "git@futix.eu";
       };
     };
 
