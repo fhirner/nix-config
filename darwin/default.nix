@@ -25,10 +25,16 @@
       ".GlobalPreferences"."com.apple.mouse.scaling" = 5.0;
       spaces.spans-displays = false;
 
+      CustomUserPreferences = {
+        kCFPreferencesAnyApplication = {
+          TSMLanguageIndicatorEnabled = false;
+        };
+      };
+
       dock = {
         autohide = true;
         autohide-delay = 0.0;
-        autohide-time-modifier = 0.0;
+        autohide-time-modifier = 0.15;
         orientation = "left";
         mru-spaces = false;
         show-recents = false;
@@ -36,17 +42,24 @@
 
       finder = {
         AppleShowAllExtensions = true;
-        AppleShowAllFiles = true;
+        AppleShowAllFiles = false;
         CreateDesktop = false;
+        _FXSortFoldersFirst = true;
         FXDefaultSearchScope = "SCcf"; # current folder
+        FXPreferredViewStyle = "Nlsv";
+        ShowPathbar = true;
         QuitMenuItem = true;
       };
 
+      hitoolbox.AppleFnUsageType = "Do Nothing";
+
       NSGlobalDomain = {
         _HIHideMenuBar = false;
+        AppleKeyboardUIMode = 2;
+        ApplePressAndHoldEnabled = false;
         AppleShowAllExtensions = true;
         AppleShowAllFiles = true;
-        InitialKeyRepeat = 10;
+        InitialKeyRepeat = 15;
         KeyRepeat = 2;
         NSAutomaticSpellingCorrectionEnabled = false;
         NSAutomaticWindowAnimationsEnabled = false;
