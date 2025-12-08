@@ -1,6 +1,9 @@
 { pkgs, ... }:
 {
-  imports = [ ./homebrew.nix ];
+  imports = [
+    ./homebrew.nix
+    ./yabai.nix
+  ];
 
   environment.systemPackages = with pkgs; [
     mas
@@ -43,7 +46,7 @@
       finder = {
         AppleShowAllExtensions = true;
         AppleShowAllFiles = false;
-        CreateDesktop = false;
+        CreateDesktop = true;
         _FXSortFoldersFirst = true;
         FXDefaultSearchScope = "SCcf"; # current folder
         FXPreferredViewStyle = "Nlsv";
