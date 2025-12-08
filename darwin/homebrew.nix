@@ -24,6 +24,8 @@
       "1password"
       "eurkey"
       "firefox"
+      "ghostty"
+      "kitty"
       "raycast"
       "visual-studio-code"
     ];
