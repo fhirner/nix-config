@@ -4,6 +4,9 @@
     enable = true;
 
     settings = {
+      alias = {
+        st = "status -sb";
+      };
       user = {
         name = "Felix Hirner";
         email = "git@futix.eu";
