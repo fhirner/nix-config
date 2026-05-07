@@ -29,19 +29,19 @@
       shift + alt - right  : yabai -m window --grid 1:2:1:0:1:1
 
       # fast focus desktop
-      ctrl - down : yabai -m space --focus recent
-      ctrl - left : yabai -m space --focus prev
-      ctrl - right : yabai -m space --focus next
-      ctrl - 1 : yabai -m space --focus 1
-      ctrl - 2 : yabai -m space --focus 2
-      ctrl - 3 : yabai -m space --focus 3
-      ctrl - 4 : yabai -m space --focus 4
-      ctrl - 5 : yabai -m space --focus 5
-      ctrl - 6 : yabai -m space --focus 6
-      ctrl - 7 : yabai -m space --focus 7
-      ctrl - 8 : yabai -m space --focus 8
-      ctrl - 9 : yabai -m space --focus 9
-      ctrl - 0 : yabai -m space --focus 10
+      # ctrl - down : yabai -m space --focus recent
+      # ctrl - left : yabai -m space --focus prev
+      # ctrl - right : yabai -m space --focus next
+      # ctrl - 1 : yabai -m space --focus 1
+      # ctrl - 2 : yabai -m space --focus 2
+      # ctrl - 3 : yabai -m space --focus 3
+      # ctrl - 4 : yabai -m space --focus 4
+      # ctrl - 5 : yabai -m space --focus 5
+      # ctrl - 6 : yabai -m space --focus 6
+      # ctrl - 7 : yabai -m space --focus 7
+      # ctrl - 8 : yabai -m space --focus 8
+      # ctrl - 9 : yabai -m space --focus 9
+      # ctrl - 0 : yabai -m space --focus 10
 
       # send window to desktop and follow focus
       #ctrl + shift - x : yabai -m window --space recent; yabai -m space --focus recent
@@ -81,7 +81,7 @@
       #alt - p : yabai -m window --toggle sticky;\
       #          yabai -m window --grid 5:5:4:0:1:1
 
-      alt - return : /Users/fh/bin/iterm
+      alt - return : new-ghostty
     '';
   };
 

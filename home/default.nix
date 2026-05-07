@@ -1,6 +1,10 @@
 { pkgs, ... }:
 {
-  imports = [ ./git.nix ];
+  imports = [
+    ./fish.nix
+    ./git.nix
+    ./skhd.nix
+  ];
 
   home = {
     packages = with pkgs; [
@@ -13,10 +17,13 @@
       grype
       opentofu
     ];
+
+    shellAliases = {
+      "..." = "cd ../..";
+    };
   };
 
   programs = {
-    fish.enable = true;
     helix.enable = true;
     home-manager.enable = true;
     ssh = {
