@@ -16,6 +16,7 @@
       maven
       grype
       opentofu
+      zellij
     ];
 
     shellAliases = {
