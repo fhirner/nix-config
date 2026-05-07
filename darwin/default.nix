@@ -10,6 +10,11 @@
     nixd
     nixfmt-rfc-style
     vim
+    helm-ls
+    yaml-language-server
+    kubectl
+    kubernetes-helm
+    gopls
   ];
 
   programs = {

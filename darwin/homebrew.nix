@@ -22,6 +22,9 @@
     casks = [
       "1password-cli"
       "1password"
+      "claude"
+      "claude-code"
+      "docker-desktop"
       "eurkey"
       "firefox"
       "ghostty"
