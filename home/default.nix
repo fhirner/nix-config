@@ -9,6 +9,9 @@
       prek
       ruff
       uv
+      maven
+      grype
+      opentofu
     ];
   };
 
