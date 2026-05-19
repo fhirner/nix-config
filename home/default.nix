@@ -18,6 +18,7 @@
       opentofu
       zellij
       podman-compose
+      docker-compose
     ];
 
     shellAliases = {
