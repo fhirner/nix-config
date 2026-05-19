@@ -17,6 +17,7 @@
       grype
       opentofu
       zellij
+      podman-compose
     ];
 
     shellAliases = {
@@ -40,5 +41,9 @@
       enable = true;
       enableFishIntegration = true;
     };
+  };
+
+  services.podman = {
+    enable = true;
   };
 }

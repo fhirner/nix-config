@@ -24,13 +24,13 @@
       "1password"
       "claude"
       "claude-code"
-      "docker-desktop"
       "eurkey"
       "firefox"
       "ghostty"
       "kitty"
       "raycast"
       "visual-studio-code"
+      "podman-desktop"
     ];
   };
 }
