@@ -17,6 +17,7 @@
       grype
       opentofu
       zellij
+      mise
     ];
 
     shellAliases = {
