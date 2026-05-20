@@ -11,6 +11,9 @@
         name = "Felix Hirner";
         email = "git@futix.eu";
       };
+      init = {
+        defaultBranch = "main";
+      };
     };
 
     signing = {
