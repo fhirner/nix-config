@@ -32,6 +32,7 @@
       "visual-studio-code"
       "podman-desktop"
       "docker-desktop"
+      "secretive"
     ];
   };
 }
