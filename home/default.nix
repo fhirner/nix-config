@@ -19,6 +19,7 @@
       zellij
       podman-compose
       docker-compose
+      gh
     ];
 
     shellAliases = {
