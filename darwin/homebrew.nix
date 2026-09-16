@@ -24,7 +24,7 @@
       "1password"
       "claude"
       "claude-code"
-      "eurkey"
+      "eurkey-next"
       "firefox"
       "ghostty"
       "kitty"
