@@ -8,7 +8,6 @@
   environment.systemPackages = with pkgs; [
     mas
     nixd
-    nixfmt-rfc-style
     vim
     helm-ls
     yaml-language-server
