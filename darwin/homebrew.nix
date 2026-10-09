@@ -28,6 +28,7 @@
     casks = [
       "1password-cli"
       "1password"
+      "bitwarden"
       "claude"
       "claude-code"
       "eurkey-next"
