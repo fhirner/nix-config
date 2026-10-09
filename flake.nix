@@ -17,6 +17,10 @@
       url = "github:homebrew/homebrew-cask";
       flake = false;
     };
+    homebrew-gardener = {
+      url = "github:gardener/homebrew-tap";
+      flake = false;
+    };
     fhirner-ssh = {
       url = "https://github.com/fhirner.keys";
       flake = false;
@@ -92,6 +96,7 @@
               taps = {
                 "homebrew/homebrew-core" = inputs.homebrew-core;
                 "homebrew/homebrew-cask" = inputs.homebrew-cask;
+                "gardener/homebrew-tap" = inputs.homebrew-gardener;
               };
               mutableTaps = false;
             };

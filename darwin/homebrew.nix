@@ -19,6 +19,12 @@
       "ubo-lite-safari" = 6745342698;
     };
 
+    brews = [
+      "gardener/tap/gardenctl-v2"
+      "gardener/tap/gardenlogin"
+      "kubelogin"
+    ];
+
     casks = [
       "1password-cli"
       "1password"
@@ -33,6 +39,7 @@
       "podman-desktop"
       "docker-desktop"
       "secretive"
+      "waterfox"
     ];
   };
 }
