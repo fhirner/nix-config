@@ -31,6 +31,7 @@
       "bitwarden"
       "claude"
       "claude-code"
+      "element"
       "eurkey-next"
       "firefox"
       "ghostty"
