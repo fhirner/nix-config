@@ -69,6 +69,22 @@
         "type": "github"
       }
     },
+    "homebrew-jackielii": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1788952337,
+        "narHash": "sha256-u5mnULrPnCGaCN+ZLAzo4tRktv2ZTxKbPu5k7hVlNoc=",
+        "owner": "jackielii",
+        "repo": "homebrew-tap",
+        "rev": "80bec50a4487af592f71b3c1ea81385b95e2a7d3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jackielii",
+        "repo": "homebrew-tap",
+        "type": "github"
+      }
+    },
     "nix-darwin": {
       "inputs": {
         "nixpkgs": [
@@ -128,6 +144,7 @@
         "home-manager": "home-manager",
         "homebrew-cask": "homebrew-cask",
         "homebrew-core": "homebrew-core",
+        "homebrew-jackielii": "homebrew-jackielii",
         "nix-darwin": "nix-darwin",
         "nix-homebrew": "nix-homebrew",
         "nixpkgs": "nixpkgs"

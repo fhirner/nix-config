@@ -31,6 +31,7 @@
       "raycast"
       "visual-studio-code"
       "podman-desktop"
+      "jackielii/tap/skhd-zig"
       "waterfox"
     ];
   };

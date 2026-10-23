@@ -1,9 +1,8 @@
-{ pkgs, ... }:
+# skhd.zig is installed as a cask (darwin/homebrew.nix) and runs as its own
+# SMAppService (`skhd --install-service`, once); it hot-reloads this file.
 {
-  services.skhd = {
-    enable = true;
-
-    config = ''
+  xdg.configFile."skhd/skhdrc" = {
+    text = ''
       # change size of window
       shift + lalt - w : yabai -m window --resize top:0:-50 ; yabai -m window --resize bottom:0:-50
       shift + lalt - a : yabai -m window --resize left:-50:0 ; yabai -m window --resize right:-50:0
@@ -82,12 +81,6 @@
       #          yabai -m window --grid 5:5:4:0:1:1
 
       alt - return : new-ghostty
-    '';
-  };
-
-  home.activation = {
-    skhd-reloader = ''
-      run ${pkgs.skhd}/bin/skhd -r
     '';
   };
 }

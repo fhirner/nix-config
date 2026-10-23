@@ -17,6 +17,10 @@
       url = "github:homebrew/homebrew-cask";
       flake = false;
     };
+    homebrew-jackielii = {
+      url = "github:jackielii/homebrew-tap";
+      flake = false;
+    };
   };
 
   outputs =
@@ -92,6 +96,7 @@
                 taps = {
                   "homebrew/homebrew-core" = inputs.homebrew-core;
                   "homebrew/homebrew-cask" = inputs.homebrew-cask;
+                  "jackielii/homebrew-tap" = inputs.homebrew-jackielii;
                 };
                 mutableTaps = false;
               };
