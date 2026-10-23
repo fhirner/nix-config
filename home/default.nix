@@ -11,15 +11,9 @@
       curl
       coreutils
       ponysay
-      prek
-      ruff
       uv
-      maven
-      grype
-      opentofu
       zellij
       podman-compose
-      docker-compose
       gh
     ];
 

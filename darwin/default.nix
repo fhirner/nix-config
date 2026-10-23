@@ -9,11 +9,10 @@
     mas
     nixd
     vim
-    helm-ls
     yaml-language-server
-    kubectl
-    kubernetes-helm
     gopls
+    helm-ls
+    kubectl
   ];
 
   programs = {

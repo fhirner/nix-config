@@ -33,86 +33,97 @@
       ...
     }:
     let
-      vars = {
-        user = "fh";
-        hostname = "fh-workmac";
-      };
       system = "aarch64-darwin";
+
+      # shared modules live in ./darwin and ./home, host-specific ones in ./hosts/<hostname>
+      mkDarwin =
+        {
+          hostname,
+          user ? "fh",
+        }:
+        let
+          vars = { inherit user hostname; };
+        in
+        nix-darwin.lib.darwinSystem {
+          inherit system;
+          specialArgs = {
+            inherit inputs;
+            inherit vars;
+          };
+          modules = [
+            ./darwin
+            ./hosts/${hostname}
+            (
+              { pkgs, ... }:
+              {
+                nixpkgs = {
+                  config.allowUnfree = true;
+                  hostPlatform = "aarch64-darwin";
+                };
+
+                system = {
+                  stateVersion = 6;
+                  primaryUser = vars.user;
+                  configurationRevision = self.rev or self.dirtyRev or null;
+                };
+
+                users.knownUsers = [ vars.user ];
+                users.users.${vars.user} = {
+                  name = vars.user;
+                  uid = 501;
+                  home = "/Users/${vars.user}";
+                  shell = pkgs.fish;
+                };
+
+                networking = {
+                  computerName = vars.hostname;
+                  hostName = vars.hostname;
+                  localHostName = vars.hostname;
+                };
+
+                nix = {
+                  settings.experimental-features = "nix-command flakes";
+                  nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
+                };
+              }
+            )
+            nix-homebrew.darwinModules.nix-homebrew
+            {
+              nix-homebrew = {
+                enable = true;
+                user = vars.user;
+
+                taps = {
+                  "homebrew/homebrew-core" = inputs.homebrew-core;
+                  "homebrew/homebrew-cask" = inputs.homebrew-cask;
+                };
+                mutableTaps = false;
+              };
+            }
+            home-manager.darwinModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                extraSpecialArgs = { inherit inputs; };
+                users.${vars.user} =
+                  { ... }:
+                  {
+                    imports = [ ./home ];
+                    home.stateVersion = "25.05";
+                  };
+                backupFileExtension = "backup-before-hm";
+              };
+            }
+          ];
+        };
     in
     {
       formatter.${system} = nixpkgs.legacyPackages.${system}.nixfmt;
-      darwinConfigurations.${vars.hostname} = nix-darwin.lib.darwinSystem {
-        inherit system;
-        specialArgs = {
-          inherit inputs;
-          inherit vars;
-        };
-        modules = [
-          ./darwin
-          (
-            { pkgs, ... }:
-            {
-              nixpkgs = {
-                config.allowUnfree = true;
-                hostPlatform = "aarch64-darwin";
-              };
 
-              system = {
-                stateVersion = 6;
-                primaryUser = vars.user;
-                configurationRevision = self.rev or self.dirtyRev or null;
-              };
-
-              users.knownUsers = [ vars.user ];
-              users.users.${vars.user} = {
-                name = vars.user;
-                uid = 501;
-                home = "/Users/${vars.user}";
-                shell = pkgs.fish;
-              };
-
-              networking = {
-                computerName = vars.hostname;
-                hostName = vars.hostname;
-                localHostName = vars.hostname;
-              };
-
-              nix = {
-                settings.experimental-features = "nix-command flakes";
-                nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
-              };
-            }
-          )
-          nix-homebrew.darwinModules.nix-homebrew
-          {
-            nix-homebrew = {
-              enable = true;
-              user = vars.user;
-
-              taps = {
-                "homebrew/homebrew-core" = inputs.homebrew-core;
-                "homebrew/homebrew-cask" = inputs.homebrew-cask;
-                "gardener/homebrew-tap" = inputs.homebrew-gardener;
-              };
-              mutableTaps = false;
-            };
-          }
-          home-manager.darwinModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              extraSpecialArgs = { inherit inputs; };
-              users.${vars.user} =
-                { ... }:
-                {
-                  imports = [ ./home ];
-                  home.stateVersion = "25.05";
-                };
-              backupFileExtension = "backup-before-hm";
-            };
-          }
-        ];
+      darwinConfigurations = {
+        fh-workmac = mkDarwin { hostname = "fh-workmac"; };
+        fh-mac = mkDarwin { hostname = "fh-mac"; };
       };
     };
 }
