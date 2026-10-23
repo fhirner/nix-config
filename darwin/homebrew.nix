@@ -22,10 +22,8 @@
     casks = [
       "1password-cli"
       "1password"
-      "bitwarden"
       "claude"
       "claude-code"
-      "element"
       "eurkey-next"
       "firefox"
       "ghostty"

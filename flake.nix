@@ -17,10 +17,6 @@
       url = "github:homebrew/homebrew-cask";
       flake = false;
     };
-    homebrew-gardener = {
-      url = "github:gardener/homebrew-tap";
-      flake = false;
-    };
   };
 
   outputs =

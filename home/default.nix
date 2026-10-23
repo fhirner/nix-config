@@ -10,7 +10,6 @@
     packages = with pkgs; [
       curl
       coreutils
-      ponysay
       uv
       zellij
       podman-compose
