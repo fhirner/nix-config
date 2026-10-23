@@ -1,6 +1,9 @@
 {
   "nix.enableLanguageServer": true,
   "nix.serverPath": "nixd",
+  "nix.hiddenLanguageServerErrors": [
+    "textDocument/definition"
+  ],
   "nix.serverSettings": {
     "nixd": {
       "formatting": {
@@ -9,7 +12,7 @@
         ]
       },
       "nixpkgs": {
-        "expr": "import <nixpkgs> { }"
+        "expr": "import (builtins.getFlake \"${workspaceFolder}\").inputs.nixpkgs { }"
       },
       "options": {
         "home-manager": {
