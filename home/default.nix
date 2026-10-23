@@ -9,6 +9,7 @@
   home = {
     packages = with pkgs; [
       curl
+      coreutils
       ponysay
       prek
       ruff
