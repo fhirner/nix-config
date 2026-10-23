@@ -21,10 +21,6 @@
       url = "github:gardener/homebrew-tap";
       flake = false;
     };
-    fhirner-ssh = {
-      url = "https://github.com/fhirner.keys";
-      flake = false;
-    };
   };
 
   outputs =

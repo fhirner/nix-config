@@ -1,6 +1,5 @@
 {
   config,
-  inputs,
   pkgs,
   ...
 }:
@@ -59,7 +58,7 @@ in
     ];
 
     signing = {
-      key = builtins.readFile inputs.fhirner-ssh;
+      key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO4cHUF5lfD9uEjt/TzN/BwSSQwgTEShqOsy427C8TPx";
       format = "ssh";
       signByDefault = true;
       signer = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
