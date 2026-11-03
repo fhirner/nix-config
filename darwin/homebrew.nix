@@ -19,6 +19,10 @@
       "ubo-lite-safari" = 6745342698;
     };
 
+    brews = [
+      "nklmilojevic/sofka/sofka"
+    ];
+
     casks = [
       "1password-cli"
       "1password"

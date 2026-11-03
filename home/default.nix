@@ -14,6 +14,7 @@
       zellij
       podman-compose
       gh
+      k9s
     ];
 
     shellAliases = {

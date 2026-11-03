@@ -21,6 +21,10 @@
       url = "github:jackielii/homebrew-tap";
       flake = false;
     };
+    homebrew-sofka = {
+      url = "github:nklmilojevic/homebrew-sofka";
+      flake = false;
+    };
   };
 
   outputs =
@@ -97,6 +101,7 @@
                   "homebrew/homebrew-core" = inputs.homebrew-core;
                   "homebrew/homebrew-cask" = inputs.homebrew-cask;
                   "jackielii/homebrew-tap" = inputs.homebrew-jackielii;
+                  "nklmilojevic/homebrew-sofka" = inputs.homebrew-sofka;
                 };
                 mutableTaps = false;
               };
