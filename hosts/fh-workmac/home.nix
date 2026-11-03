@@ -10,6 +10,8 @@ let
   bwiKey = "${home}/.ssh/bwi.pub";
 in
 {
+  home.packages = [ pkgs.glab ];
+
   home.file.".ssh/bwi.pub".text =
     "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBNpRbTm23aLw6JYzf/xBCBXG+H1AzoTmw3H/il5/GuVOTPv5J3oSPyt5O/N5M+H7D9+Am3VAIE4FcP3Sydc34OE= felix.hirner@bwi.de\n";
 
