@@ -15,6 +15,9 @@
       init = {
         defaultBranch = "main";
       };
+      push = {
+        autoSetupRemote = true;
+      };
     };
 
     # host-specific includes are added in hosts/<hostname>/home.nix
