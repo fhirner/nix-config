@@ -35,6 +35,10 @@
     mise = {
       enable = true;
       enableFishIntegration = true;
+      globalConfig.settings = {
+        experimental = true;
+        activate_shims = false;
+      };
     };
   };
 
